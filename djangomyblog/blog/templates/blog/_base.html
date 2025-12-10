@@ -1,0 +1,39 @@
+<!-- djangomyblog\blog\templates\blog\_base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Meu Blog{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'blog/img/favicon.png' %}">
+</head>
+
+<body>
+
+    <div id="wrap">
+
+        <header>
+            <h1>📄Meu Blog</h1>
+            <nav>
+                <a href="/">Início</a>
+                <a href="/about">Sobre</a>
+            </nav>
+        </header>
+
+        <main>
+            {% block content %}
+            <!-- Conteúdo da página específica -->
+            {% endblock %}
+        </main>
+
+        <footer>
+            <div>© 2025 - Joca da Silva</div>
+        </footer>
+
+    </div>
+</body>
+
+</html>
