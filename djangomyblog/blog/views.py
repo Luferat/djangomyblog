@@ -1,15 +1,13 @@
 # djangomyblog\blog\views.py
 
 from django.shortcuts import redirect, render
-from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-
-from djangomyblog.blog.models import Post
-
 from .forms import CustomUserCreationForm
+from blog.models import Post
 
 
 def home(request):
+
     posts = (
         Post.objects
         .filter(status='ON')
