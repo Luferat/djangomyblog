@@ -2,6 +2,7 @@
 
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
+from blog.utils.markdown import render_markdown
 from .forms import CustomUserCreationForm
 from blog.models import Post
 
@@ -44,7 +45,13 @@ def signup(request):
 
 def post_detail(request, id):
     post = get_object_or_404(Post, id=id, status='ON')
-    return render(request, 'blog/post_detail.html', {'post': post})
+    post.content_html = render_markdown(post.content)
+
+    return render(
+        request,
+        "blog/post_detail.html",
+        {"post": post}
+    )
 
 @login_required
 def new_post(request):

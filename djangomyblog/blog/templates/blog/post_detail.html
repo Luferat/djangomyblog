@@ -15,6 +15,5 @@
         {% endif %}
     </small>
 </p>
-<hr>
-<p>{{ post.content }}</p>
+<p>{{ post.content_html|safe }}</p>
 {% endblock %}
