@@ -22,14 +22,6 @@ def home(request):
 def about(request):
     return render(request, "blog/about.html")
 
-# Só acessa profile() se estiver logado
-# Não está logado, vai para '/accounts/login/'
-
-
-@login_required
-def profile(request):
-    return render(request, "blog/profile.html")
-
 
 def signup(request):
     if request.method == "POST":
@@ -53,6 +45,7 @@ def post_detail(request, id):
         {"post": post}
     )
 
+
 @login_required
 def new_post(request):
 
@@ -71,6 +64,7 @@ def new_post(request):
 
     return render(request, "blog/new_post.html")
 
+
 @login_required
 def delete_post(request, id):
     post = get_object_or_404(
@@ -86,6 +80,7 @@ def delete_post(request, id):
     post.save(update_fields=['status'])
 
     return redirect('home')
+
 
 @login_required
 def edit_post(request, id):
