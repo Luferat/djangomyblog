@@ -10,10 +10,9 @@
 <p><small>Ordenados pela data mais recente.</small></p>
 
 {% for post in posts %}
-<hr>
-<article>
+<article onclick="location.href='/post/{{ post.id }}'">
     <h3><a href="/post/{{ post.id }}">{{ post.title }}</a></h3>
-    <p>{{ post.content|truncatechars:80 }}</p>
+    <p>{{ post.content|truncatechars:150 }}</p>
     <small>
         Por {{ post.user.username }}
         em {{ post.created_at|date:"d/m/Y à\s H:i" }}

@@ -6,36 +6,32 @@
 
 {% block content %}
 <h2>{{ post.title }}</h2>
-<p>
-    <small>
-        Por {{ post.user.username }} em {{ post.created_at|date:"d/m/Y à\s H:i" }}
-        {% if post.user.id == user.id %}
-        <small>
-            <a href="{% url 'edit_post' post.id %}" title="Editar Post">✏️</a>
-            <a href="{% url 'delete_post' post.id %}" title="Apagar Post" onclick="return confirm('Term certeza que deseja apagar o Post? Isso é irreversível!')">🗑️</a>
-        </small>
-        {% endif %}
-    </small>
-</p>
-<p>{{ post.content_html|safe }}</p>
 
-<hr>
-<hr>
+<small class="author-date">
+    Por {{ post.user.username }} em {{ post.created_at|date:"d/m/Y à\s H:i" }}
+    {% if post.user.id == user.id %}
+    <span>
+        <a href="{% url 'edit_post' post.id %}" title="Editar Post">✏️</a>
+        <a href="{% url 'delete_post' post.id %}" title="Apagar Post" onclick="return confirm('Term certeza que deseja apagar o Post? Isso é irreversível!')">🗑️</a>
+    </span>
+    {% endif %}
+</small>
 
-<h3>Comentários</h3>
+<div>{{ post.content_html|safe }}</div>
+
+<h3 id="comments">Comentários</h3>
 
 {# formulário de comentário só aparece se estiver logado #}
 {% if user.is_authenticated %}
 
-<form action="{% url 'comment_post' %}" method="post">
-
-    {% csrf_token %}
-
-    <input type="hidden" name="postid" value="{{ post.id }}">
-    <textarea name="comment" required minlength="4" placeholder="Deixe seu comentário!"></textarea>
-    <div><button type="submit">Enviar</button></div>
-
-</form>
+<div class="comment-form">
+    <form action="{% url 'comment_post' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="postid" value="{{ post.id }}">
+        <textarea name="comment" required minlength="4" placeholder="Deixe seu comentário!"></textarea>
+        <div><button type="submit">Enviar</button></div>
+    </form>
+</div>
 
 {% else %}
 
@@ -51,7 +47,6 @@
 
 {% elif comments|length == 1 %}
 
-<hr>
 <h3>1 Comentário</h3>
 
 {% else %}
@@ -69,7 +64,7 @@
             Por <strong>{{ comment.user.username }}</strong>
             em {{ comment.created_at|date:"d/m/Y H:i" }}
         </small>
-        <p>{{ comment.comment|linebreaks }}</p>
+        {{ comment.comment|linebreaks }}
     </div>
     {% endfor %}
 

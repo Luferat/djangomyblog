@@ -5,14 +5,17 @@
 {% block title %}Meu Blog - Login{% endblock %}
 
 {% block content %}
-<h2>Login</h2>
+<h2>Logue-se!</h2>
 
-<form method="post">
+<form method="post" class="login-form">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Entrar</button>
+
+    <ul class="login-options">
+        <li>Não é cadastrado? <a href="{% url 'signup' %}">Clique aqui</a>!</li>
+        <li>Esqueceu a senha? <a href="/accounts/password_reset">Clique aqui</a>!</li>
+    </ul>
 </form>
 
-<p>Não é cadastrado? <a href="{% url 'signup' %}">Clique aqui</a>!</p>
-<p>Esqueceu a senha? <a href="/accounts/password_reset">Clique aqui</a>!</p>
 {% endblock %}

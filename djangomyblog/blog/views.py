@@ -2,6 +2,7 @@
 
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 from blog.utils.markdown import render_markdown
 from .forms import CustomUserCreationForm
 from blog.models import Post, Comment
@@ -134,6 +135,7 @@ def comment_post(request):
                 status="ON"
             )
 
-        return redirect("post_detail", id=post.id)
+        # return redirect("post_detail", id=post.id)
+        return redirect(f"{reverse('post_detail', args=[post.id])}#comments")
 
     return redirect("home")

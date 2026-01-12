@@ -7,10 +7,14 @@
 {% block content %}
 <h2>Criar conta</h2>
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Cadastrar</button>
-</form>
+<div class="signup-form">
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Cadastrar</button>
+    </form>
+
+</div>
 
 {% endblock %}

@@ -6,18 +6,18 @@
 
 <h2>Editar Post</h2>
 
-<form action="{% url 'edit_post' post.id %}" method="post">
-    {% csrf_token %}
+<div class="postform">
 
-    <p>
-        <label for="title">Título:</label>
-        <input type="text" name="title" id="title" value="{{ post.title }}" required minlength="4">
-    </p>
+    <form action="{% url 'edit_post' post.id %}" method="post">
+        {% csrf_token %}
+        <p class="post-title">
+            <label for="title">Título:</label>
+            <input type="text" name="title" id="title" value="{{ post.title }}" required minlength="4">
+        </p>
+        <p class="post-content"><textarea name="content" required minlength="4">{{ post.content }}</textarea></p>
+        <p><button type="submit">Salvar alterações</button></p>
+    </form>
 
-    <p><textarea name="content" required minlength="4">{{ post.content }}</textarea></p>
-
-    <p><button type="submit">Salvar alterações</button></p>
-
-</form>
+</div>
 
 {% endblock %}
