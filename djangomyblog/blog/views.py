@@ -24,6 +24,10 @@ def about(request):
     return render(request, "blog/about.html")
 
 
+def policies(request):
+    return render(request, "blog/policies.html")
+
+
 def signup(request):
     if request.method == "POST":
         form = CustomUserCreationForm(request.POST)

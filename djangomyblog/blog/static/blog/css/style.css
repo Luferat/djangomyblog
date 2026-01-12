@@ -143,6 +143,15 @@ footer {
     padding: .5rem;
 }
 
+footer small a{
+    color: #ddd;
+    letter-spacing: .05rem;
+}
+
+footer small a:hover{
+    color: #eee;
+}
+
 .btn-logout {
     display: inline;
 }

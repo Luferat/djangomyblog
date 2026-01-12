@@ -1,0 +1,87 @@
+{% extends "blog/_base.html" %}
+
+{% block title %}Meu Blog - Sobre{% endblock %}
+
+{% block content %}
+<h2>Políticas de Privacidade</h2>
+
+<p><em>Última atualização: janeiro de 2026</em></p>
+
+<p>
+    A sua privacidade é importante para nós. Esta Política de Privacidade explica quais dados coletamos, 
+    como utilizamos e como protegemos as informações dos usuários no <strong>Meu Blog</strong>, 
+    um projeto didático desenvolvido com Python, Django e SQLite.
+</p>
+
+<h3>1. Informações que coletamos</h3>
+<p>Quando você acessa o <strong>Meu Blog</strong> utilizando login, coletamos apenas:</p>
+<ul>
+    <li><strong>Nome de usuário</strong> — Nome de identificação do usuário dentro do sistema;</li>
+    <li><strong>E-mail</strong> — Usado exclusivamente para recuperar a senha do usuário;</li>
+    <li><strong>Senha</strong> — Uma senha de acesso do usuário que fica armazenada de forma criptografada.</li>
+</ul>
+
+<p>Também armazenamos os dados criados por você dentro da plataforma:</p>
+<ul>
+    <li><strong>Artigos</strong> — Título, conteúdo, datas e modificações.</li>
+    <li><strong>Comentários</strong> - Conteúdo, datas e modificações.</li>
+</ul>
+
+<p>
+    <strong>Não coletamos</strong> telefone, localização, dados sensíveis ou qualquer outra 
+    informação adicional.
+</p>
+
+<h3>2. Como usamos suas informações</h3>
+<p>Os dados coletados são utilizados exclusivamente para:</p>
+<ul>
+    <li>Autenticação e identificação do usuário;</li>
+    <li>Exibir nome nos artigos e comentários que você produziu;</li>
+    <li>Organizar e associar artigos e comentários à sua conta;</li>
+    <li>Permitir edição e compartilhamento dentro do sistema.</li>
+</ul>
+
+<p>
+    Nenhum dado é usado para fins comerciais, publicidade, rastreamento ou qualquer tipo de venda a terceiros.
+</p>
+
+<h3>3. Compartilhamento de informações</h3>
+<p>
+    O <strong>Meu Blog</strong> <strong>não compartilha seus dados com terceiros</strong>, 
+    mas lembre-se que seus artigos e comentários são públicos, portanto, qualquer um pode ver seu "nome de usuário" na plataforma.
+</p>
+
+<h3>4. Armazenamento e segurança</h3>
+<p>
+    Os dados são armazenados localmente em um banco <strong>SQLite</strong>, utilizado apenas para fins 
+    educacionais. Embora boas práticas sejam aplicadas, o sistema não deve ser considerado uma plataforma 
+    de produção ou alta segurança. No caso das senhas, elas são criptografas no ato da sua criação usando criptografia forte 
+    e de apenas um sentido (<em>hash</em>), ou seja, que não pode ser desfeita.
+</p>
+
+<h3>5. Exclusão de dados</h3>
+<p>
+    Você pode solicitar a exclusão da sua conta ou de seus Artigos ou comentários a qualquer momento. 
+    Ao excluir sua conta, todos os dados associados são removidos permanentemente.
+</p>
+
+<h3>6. Cookies</h3>
+<p>
+    Utilizamos apenas cookies essenciais para manter sua sessão autenticada. 
+    Não usamos cookies de marketing ou rastreamento.
+</p>
+
+<h3>7. Alterações nesta política</h3>
+<p>
+    Esta política pode ser atualizada ocasionalmente. Sempre exibiremos a data da última atualização no topo da página.
+</p>
+
+<h3>8. Contato</h3>
+<p>
+    Para dúvidas, sugestões ou solicitações, entre em contato através do repositório do projeto:<br>
+    <a href="https://github.com/Luferat/djangomyblog" target="_blank">
+        https://github.com/Luferat/djangomyblog
+    </a>
+</p>
+
+{% endblock %}
